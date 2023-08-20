@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <div>
+        <label for="item">List Item</label>
+        <input type="text">
+        <button>Add Item</button>
+    </div>
+    <ul>
+
+    </ul>
+
+    <script>
+        let list = document.querySelector('ul');
+        let Item = document.querySelector('input');
+        let btn = document.querySelector('button');
+
+        btn.onclick = () => {
+            let myItem = Item.value;
+            Item.value = '';
+            let listItem = document.createElement('li');
+            let listText = document.createElement('span');
+
+            listText.textContent = myItem;
+            // console.log(listText);
+            listItem.appendChild(listText);
+            list.appendChild(listItem);
+
+            let delBtn = document.createElement('button');
+            delBtn.textContent = 'Delete';
+            listItem.appendChild(delBtn);
+
+            delBtn.onclick = () => {
+                list.removeChild(listItem);
+            }
+
+
+
+
+
+        }
+
+    </script>
+
+    
+</body>
+</html>
